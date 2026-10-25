@@ -1,52 +1,85 @@
-const menuButton = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
+(() => {
+  // Branded loader: reveal promptly even if a browser event is delayed.
+  const loader = document.getElementById('site-loader');
+  const dismissLoader = () => {
+    if (loader) {
+      loader.classList.add('is-done');
+      window.setTimeout(() => loader.remove(), 500);
+    }
+  };
+  window.addEventListener('load', dismissLoader, { once: true });
+  window.setTimeout(dismissLoader, 1600);
 
-if (menuButton && navLinks) {
-  menuButton.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
-    menuButton.setAttribute("aria-expanded", String(isOpen));
-    menuButton.textContent = isOpen ? "✕" : "☰";
-  });
+  // Custom cursor follows the pointer and becomes a soft ring over interactive items.
+  const cursor = document.querySelector('.custom-cursor');
+  if (cursor && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    window.addEventListener('pointermove', (event) => {
+      cursor.style.left = `${event.clientX}px`;
+      cursor.style.top = `${event.clientY}px`;
+      cursor.classList.add('is-visible');
+    }, { passive: true });
+    document.addEventListener('pointerover', (event) => {
+      cursor.classList.toggle('is-hovering', Boolean(event.target.closest('a,button,[role="button"]')));
+    });
+    document.addEventListener('pointerleave', () => cursor.classList.remove('is-visible'));
+    document.addEventListener('pointerenter', () => cursor.classList.add('is-visible'));
+  }
+  const menuButton = document.querySelector('.menu-toggle');
+  const mobileNav = document.querySelector('.mobile-nav');
 
-  navLinks.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
-      menuButton.textContent = "☰";
+  if (menuButton && mobileNav) {
+    const closeMenu = () => {
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open navigation');
+      mobileNav.hidden = true;
+      document.body.classList.remove('menu-open');
+    };
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
+      mobileNav.hidden = isOpen;
+      document.body.classList.toggle('menu-open', !isOpen);
+    });
+
+    mobileNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+  }
+
+  const filterButtons = document.querySelectorAll('[data-filter]');
+  const projects = document.querySelectorAll('.project[data-category]');
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      filterButtons.forEach((item) => {
+        const active = item === button;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
+      projects.forEach((project) => {
+        project.hidden = filter !== 'all' && project.dataset.category !== filter;
+      });
     });
   });
-}
 
-const revealItems = document.querySelectorAll(".reveal");
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver((entries, currentObserver) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        currentObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
+  const revealItems = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach((item) => observer.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add('is-visible'));
+  }
 
-  revealItems.forEach((item) => observer.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add("visible"));
-}
-
-// Subtle pointer parallax on the hero illustration, disabled for touch devices.
-const heroArt = document.querySelector(".hero-art");
-if (heroArt && window.matchMedia("(pointer:fine)").matches) {
-  heroArt.addEventListener("pointermove", (event) => {
-    const rect = heroArt.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width - 0.5;
-    const y = (event.clientY - rect.top) / rect.height - 0.5;
-    heroArt.style.setProperty("--pointer-x", `${x * 8}px`);
-    heroArt.style.setProperty("--pointer-y", `${y * 8}px`);
-    const avatar = heroArt.querySelector(".avatar");
-    if (avatar) avatar.style.marginLeft = `${x * 10}px`;
-  });
-  heroArt.addEventListener("pointerleave", () => {
-    const avatar = heroArt.querySelector(".avatar");
-    if (avatar) avatar.style.marginLeft = "0";
-  });
-}
+  const year = document.getElementById('year');
+  if (year) year.textContent = String(new Date().getFullYear());
+})();
