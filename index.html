@@ -1,80 +1,208 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kaustubh Singh | Developer</title>
-  <meta name="description" content="Computer Science student at MIT Manipal building AI projects and software.">
+  <meta name="theme-color" content="#080a10">
+  <title>Kaustubh Singh | AI & Software Developer</title>
+  <meta name="description" content="Kaustubh Singh is a Computer Science student at MIT Manipal building AI projects, algorithms, and software.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
-    <a class="logo" href="#">KS.</a>
-    <a href="#projects">Projects</a>
-    <a href="https://github.com/Kaust-bh" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-    <a href="https://www.linkedin.com/in/kaustubhsingh265/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-  </nav>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="nav">
+    <a class="brand" href="#home" aria-label="Kaustubh home">KS<span>.</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="mailto:hello@kaustubhsingh.me">Let's talk <span>↗</span></a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </header>
 
   <main>
-    <p class="eyebrow">COMPUTER SCIENCE · MIT MANIPAL</p>
-    <h1>Building things<br>that <span>think.</span></h1>
-    <p class="intro">
-      Hey, I'm Kaustubh. I build AI-powered projects,
-      experiment with algorithms, and turn ideas into software.
-    </p>
-
-    <div class="buttons">
-      <a class="primary" href="#projects">Explore my work ↓</a>
-      <a class="secondary" href="https://github.com/Kaust-bh" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a>
-      <a class="secondary" href="https://www.linkedin.com/in/kaustubhsingh265/" target="_blank" rel="noopener noreferrer">LinkedIn profile ↗</a>
-    </div>
-
-    <section id="projects">
-      <p class="eyebrow">SELECTED WORK</p>
-      <h2>Projects</h2>
-
-      <div class="project">
-        <p class="tag">REINFORCEMENT LEARNING</p>
-        <h3>2048 AI</h3>
-        <p>An AI agent trained to play 2048 using deep reinforcement learning.</p>
-        <a href="https://github.com/Kaust-bh" target="_blank" rel="noopener noreferrer">View source ↗</a>
-      </div>
-
-      <div class="project">
-        <p class="tag">ALGORITHMS · INFORMATION THEORY</p>
-        <h3>Wordle Solver AI</h3>
-        <p>
-          An interactive Wordle AI that compares entropy and minimax
-          strategies, recommends guesses, and tracks possible answers.
-        </p>
-        <div class="buttons">
-          <a class="primary"
-             href="https://wordle-ai-7t7tjvrcidhgpiusjojm4s.streamlit.app/"
-             target="_blank" rel="noopener noreferrer">
-            Try Live Demo ↗
-          </a>
-          <a class="secondary"
-             href="https://github.com/Kaust-bh/wordle-ai"
-             target="_blank" rel="noopener noreferrer">
-            View Source ↗
-          </a>
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> COMPUTER SCIENCE · MIT MANIPAL</p>
+        <h1>Curious mind.<br><span class="gradient-text">Useful things.</span></h1>
+        <p class="hero-description">I’m Kaustubh, a computer science student who enjoys turning ideas into intelligent, useful software.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore my work <span>↓</span></a>
+          <a class="button button-ghost" href="https://github.com/Kaust-bh" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
+        </div>
+        <div class="hero-meta">
+          <span>AI / ALGORITHMS / SOFTWARE</span>
+          <span>BASED IN INDIA</span>
         </div>
       </div>
+      <div class="hero-art hero-photo-art" aria-label="Photo of Kaustubh">
+        <div class="photo-halo"></div>
+        <div class="photo-frame">
+          <img src="assets/kaustubh-photo.jpeg" alt="Kaustubh standing on a sunny street wearing sunglasses and a colorful shirt">
+          <div class="photo-overlay"></div>
+          <div class="photo-sticker sticker-top">HEY, I'M KAUSTUBH <span>↗</span></div>
+          <div class="photo-sticker sticker-bottom"><span class="status-dot"></span> BUILDING THINGS THAT THINK</div>
+        </div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="planet planet-a"></div>
+        <div class="planet planet-b"></div>
+        <div class="art-label label-left"><span>01 /</span> BUILDER</div>
+        <div class="art-label label-right"><span>FOCUS</span><br>AI & SOFTWARE</div>
+      </div>
+      <div class="scroll-cue"><span></span> SCROLL TO EXPLORE</div>
+    </section>
 
-      <div class="project">
-        <p class="tag">COMPUTER VISION</p>
-        <h3>Rebottled</h3>
-        <p>An AI-powered bottle recognition and recycling concept for smarter waste recovery.</p>
-        <a href="https://github.com/Kaust-bh" target="_blank" rel="noopener noreferrer">View source ↗</a>
+    <section class="marquee" aria-label="Areas of interest">
+      <div class="marquee-track">
+        <span>ARTIFICIAL INTELLIGENCE</span><b>✳</b><span>ALGORITHMS</span><b>✳</b><span>COMPUTER VISION</span><b>✳</b><span>SOFTWARE</span><b>✳</b>
+        <span>ARTIFICIAL INTELLIGENCE</span><b>✳</b><span>ALGORITHMS</span><b>✳</b><span>COMPUTER VISION</span><b>✳</b><span>SOFTWARE</span><b>✳</b>
       </div>
     </section>
 
-    <footer>
-      Built by Kaustubh Singh ·
-      <a href="https://github.com/Kaust-bh" target="_blank" rel="noopener noreferrer">GitHub</a> ·
-      <a href="https://www.linkedin.com/in/kaustubhsingh265/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </footer>
+    <section class="about section-wrap section-pad reveal" id="about">
+      <div class="section-kicker"><span>01</span> / A LITTLE ABOUT ME</div>
+      <div class="about-content">
+        <h2>I like understanding <span class="muted">how things work,</span> then building something with that knowledge.</h2>
+        <div class="about-bottom">
+          <p>I’m studying Computer Science at MIT Manipal. I enjoy experimenting with AI, breaking down algorithms, and making projects people can actually try. I’m most excited by the space where problem-solving meets product thinking.</p>
+          <a class="text-link" href="https://www.linkedin.com/in/kaustubhsingh265/" target="_blank" rel="noopener noreferrer">More about me on LinkedIn <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="what section-wrap section-pad reveal">
+      <div class="section-kicker"><span>02</span> / WHAT I DO</div>
+      <div class="what-grid">
+        <article class="service-card service-feature">
+          <div class="card-number">01</div>
+          <div class="service-icon icon-brain">✳</div>
+          <h3>AI & intelligent systems</h3>
+          <p>Building agents that make decisions, learn from feedback, and solve problems with measurable strategies.</p>
+          <div class="card-tags"><span>REINFORCEMENT LEARNING</span><span>SEARCH</span></div>
+        </article>
+        <article class="service-card">
+          <div class="card-number">02</div>
+          <div class="service-icon icon-code">&lt;/&gt;</div>
+          <h3>Algorithms & problem solving</h3>
+          <p>Turning complex problems into clear logic, useful experiments, and fast implementations.</p>
+          <div class="card-tags"><span>PYTHON</span><span>OPTIMIZATION</span></div>
+        </article>
+        <article class="service-card">
+          <div class="card-number">03</div>
+          <div class="service-icon icon-eye">◉</div>
+          <h3>Computer vision</h3>
+          <p>Exploring how software can recognize real-world objects and turn visual input into useful data.</p>
+          <div class="card-tags"><span>COMPUTER VISION</span><span>PROTOTYPING</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="work section-wrap section-pad reveal" id="work">
+      <div class="section-heading">
+        <div><div class="section-kicker"><span>03</span> / SELECTED PROJECTS</div><h2>My <span class="gradient-text">work.</span></h2></div>
+        <p>Experiments, ideas, and tools I’ve been building.</p>
+      </div>
+      <article class="project project-wordle">
+        <div class="project-visual wordle-visual">
+          <div class="visual-top"><span>WORDLE AI ARENA</span><span>LIVE DEMO ↗</span></div>
+          <div class="word-grid">
+            <span class="tile green">S</span><span class="tile yellow">A</span><span class="tile dark">L</span><span class="tile dark">E</span><span class="tile dark">T</span>
+            <span class="tile green">S</span><span class="tile green">H</span><span class="tile yellow">A</span><span class="tile dark">R</span><span class="tile dark">E</span>
+          </div>
+          <div class="solver-card"><span>RECOMMENDED GUESS</span><strong>CRANE</strong><small>ENTROPY · MINIMAX</small></div>
+          <div class="visual-glow"></div>
+        </div>
+        <div class="project-info">
+          <div class="project-type">01 / ALGORITHMS · INFORMATION THEORY</div>
+          <h3>Wordle Solver AI</h3>
+          <p>An interactive solver that compares entropy and minimax strategies, recommends guesses, and tracks remaining candidate answers.</p>
+          <div class="project-links"><a class="button button-primary" href="https://wordle-ai-7t7tjvrcidhgpiusjojm4s.streamlit.app/" target="_blank" rel="noopener noreferrer">Try live demo <span>↗</span></a><a class="text-link" href="https://github.com/Kaust-bh/wordle-ai" target="_blank" rel="noopener noreferrer">Source code <span>↗</span></a></div>
+        </div>
+      </article>
+      <article class="project project-2048">
+        <div class="project-visual game-visual">
+          <div class="game-caption">A LITTLE BIT OF STRATEGY</div>
+          <div class="game-board">
+            <span>2</span><span>4</span><span></span><span>2</span>
+            <span>4</span><span>8</span><span>16</span><span></span>
+            <span>2</span><span>32</span><span>64</span><span>4</span>
+            <span></span><span>8</span><span>128</span><span>256</span>
+          </div>
+          <div class="game-score">AI AGENT <b>REINFORCEMENT LEARNING</b></div>
+        </div>
+        <div class="project-info">
+          <div class="project-type">02 / REINFORCEMENT LEARNING</div>
+          <h3>2048 AI</h3>
+          <p>An agent trained to play 2048 using deep reinforcement learning. Built to experiment with learning, evaluation, and game strategy.</p>
+          <div class="project-links"><a class="button button-ghost" href="https://github.com/Kaust-bh" target="_blank" rel="noopener noreferrer">Explore on GitHub <span>↗</span></a></div>
+        </div>
+      </article>
+      <article class="project project-rebottled">
+        <div class="project-visual recycle-visual">
+          <div class="recycle-ring ring-one"></div><div class="recycle-ring ring-two"></div>
+          <div class="bottle bottle-one"><span></span></div><div class="bottle bottle-two"><span></span></div>
+          <div class="scan-line"></div>
+          <div class="scan-tag">OBJECT DETECTED <b>✓</b></div>
+          <div class="recycle-caption">RECOGNIZE · RECOVER · REPEAT</div>
+        </div>
+        <div class="project-info">
+          <div class="project-type">03 / COMPUTER VISION · SUSTAINABILITY</div>
+          <h3>Rebottled</h3>
+          <p>An AI-powered reverse vending concept that recognizes bottles and supports traceable recycling and recovery data.</p>
+          <div class="project-links"><a class="button button-ghost" href="https://github.com/Kaust-bh" target="_blank" rel="noopener noreferrer">Explore projects <span>↗</span></a></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="stack section-wrap section-pad reveal" id="stack">
+      <div class="section-kicker"><span>04</span> / TOOLS OF THE TRADE</div>
+      <h2>My <span class="gradient-text">tech stack.</span></h2>
+      <p class="stack-intro">Tools I use to turn ideas into working prototypes.</p>
+      <div class="stack-cloud" aria-label="Technology skills">
+        <span class="tech tech-python">Python</span><span class="tech tech-pytorch">PyTorch</span><span class="tech tech-git">Git</span>
+        <span class="tech tech-html">HTML / CSS</span><span class="tech tech-js">JavaScript</span><span class="tech tech-cv">OpenCV</span>
+        <span class="tech tech-c">C / C++</span><span class="tech tech-rl">Reinforcement Learning</span><span class="tech tech-linux">Linux</span>
+        <span class="tech tech-github">GitHub</span><span class="tech tech-numpy">NumPy</span><span class="tech tech-algo">Algorithms</span>
+      </div>
+      <p class="stack-note">Always learning. Always shipping small experiments.</p>
+    </section>
+
+    <section class="journey section-wrap section-pad reveal">
+      <div class="section-kicker"><span>05</span> / THE JOURNEY</div>
+      <div class="journey-layout">
+        <h2>Learning by<br><span class="muted">building.</span></h2>
+        <div class="timeline">
+          <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-date">NOW</div><div><h3>Computer Science undergraduate</h3><p>MIT Manipal · Exploring AI, algorithms, and software engineering.</p></div></div>
+          <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-date">PROJECTS</div><div><h3>Building practical experiments</h3><p>Wordle strategy solver, 2048 reinforcement learning agent, and bottle-recognition prototype.</p></div></div>
+          <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-date">NEXT</div><div><h3>More open-source work</h3><p>Improving my engineering fundamentals and building projects worth sharing.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section-wrap reveal" id="contact">
+      <div class="contact-orb orb-one"></div><div class="contact-orb orb-two"></div>
+      <div class="section-kicker"><span>06</span> / YOUR TURN</div>
+      <h2>Have an idea?<br><span class="gradient-text">Let’s build it.</span></h2>
+      <p>I’m always up for talking about interesting projects, AI, and opportunities to learn by building.</p>
+      <div class="contact-actions">
+        <a class="button button-primary" href="mailto:hello@kaustubhsingh.me">Get in touch <span>↗</span></a>
+        <a class="button button-ghost" href="https://www.linkedin.com/in/kaustubhsingh265/" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
+        <a class="button button-ghost" href="https://github.com/Kaust-bh" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
+      </div>
+    </section>
   </main>
+
+  <footer class="footer section-wrap">
+    <a class="brand" href="#home">KS<span>.</span></a>
+    <p>Designed with curiosity · Built by Kaustubh Singh</p>
+    <a href="#home">BACK TO TOP ↑</a>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
