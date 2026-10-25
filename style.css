@@ -64,56 +64,31 @@ h1{font-size:clamp(54px,7vw,96px);letter-spacing:-.075em;line-height:.99;margin:
 .contact{margin:20px auto 70px;max-width:1172px;min-height:430px;border:1px solid #ffffff19;border-radius:10px;padding-top:70px;padding-bottom:70px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 80% 0%,#3c356b45,transparent 45%),#0e111a}.contact .section-kicker,.contact h2,.contact>p,.contact-actions{position:relative;z-index:2}.contact h2{font-size:clamp(45px,7vw,78px);line-height:1.04;letter-spacing:-.07em;margin:30px 0 15px}.contact>p{font-size:13px;line-height:1.8;color:var(--muted);max-width:460px}.contact-orb{position:absolute;border-radius:50%;filter:blur(1px);border:1px solid #a78bfa44}.orb-one{width:260px;height:260px;right:10%;top:20%;background:radial-gradient(circle at 30% 25%,#c2b1ff66,#7c68d411 55%,transparent 70%);box-shadow:inset -25px -25px 60px #05060a88,0 0 80px #8d78ff1c;animation:float 7s ease-in-out infinite}.orb-two{width:70px;height:70px;right:28%;top:22%;background:radial-gradient(circle at 30% 25%,#a2f6e5,#388c83 70%);border:0;box-shadow:inset -10px -10px 20px #0005;animation:float 5s ease-in-out -2s infinite}.footer{height:90px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);color:#777d8d}.footer p,.footer>a:last-child{font:9px var(--mono);letter-spacing:1px}.footer>a:last-child{font-size:8px}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}
 @keyframes orbit{to{transform:rotate(336deg)}}@keyframes float{0%,100%{translate:0 0}50%{translate:0 -12px}}@keyframes avatarFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}@keyframes marquee{to{transform:translateX(-50%)}}@keyframes techFloat{0%,100%{translate:0 0}50%{translate:0 -7px}}@keyframes scan{0%,100%{transform:translateY(-65px);opacity:.4}50%{transform:translateY(65px);opacity:1}}
+
+/* Glowing orb hero artwork, replacing the CSS avatar */
+.orb-glow{position:absolute;width:310px;height:310px;display:grid;place-items:center;isolation:isolate;animation:orbBob 6s ease-in-out infinite}
+.orb-halo{position:absolute;inset:-60px;border-radius:50%;background:radial-gradient(circle,rgba(143,109,255,.25),rgba(97,70,214,.10) 42%,transparent 72%);filter:blur(13px);animation:haloPulse 5s ease-in-out infinite}
+.orb-core{position:absolute;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle at 31% 25%,#f1eaff 0%,#b6a2ff 8%,#8061f2 25%,#4730a6 49%,#17132f 72%,#080a10 100%);box-shadow:inset -23px -25px 44px rgba(3,4,12,.82),inset 10px 8px 24px rgba(255,255,255,.22),0 0 35px rgba(143,109,255,.45),0 0 95px rgba(111,78,255,.32);animation:orbShine 8s ease-in-out infinite}
+.orb-highlight{position:absolute;top:56px;left:81px;width:66px;height:25px;border-radius:50%;background:rgba(255,255,255,.34);filter:blur(13px);transform:rotate(-32deg)}
+.orb-ring{position:absolute;border:1px solid rgba(180,157,255,.55);border-radius:50%;width:340px;height:125px;transform:rotate(-25deg);box-shadow:0 0 16px rgba(145,113,255,.10)}
+.orb-ring-one{animation:orbRing 14s linear infinite}
+.orb-ring-two{width:290px;height:365px;transform:rotate(42deg);border-color:rgba(120,235,211,.24);animation:orbRing 19s linear infinite reverse}
+.orb-satellite{position:absolute;width:18px;height:18px;right:26px;top:65px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#d6fff5,#64d9c2 45%,#226f68 100%);box-shadow:0 0 24px rgba(100,217,194,.55);animation:orbSatellite 7s ease-in-out infinite}
+@keyframes orbBob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+@keyframes haloPulse{0%,100%{opacity:.7;transform:scale(.94)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes orbShine{0%,100%{filter:hue-rotate(0deg)}50%{filter:hue-rotate(9deg)}}
+@keyframes orbRing{to{rotate:335deg}}
+@keyframes orbSatellite{0%,100%{translate:0 0}50%{translate:12px -9px}}
+@media(max-width:600px){.orb-glow{transform:scale(.88)}}
+
 @media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto;padding-top:70px;padding-bottom:100px}.hero-copy{padding-bottom:10px}.hero-art{height:480px;max-width:650px;width:100%;margin:0 auto}.scroll-cue{bottom:30px}.about{grid-template-columns:1fr;gap:30px}.what-grid{grid-template-columns:1fr 1fr}.service-card:last-child{grid-column:span 2}.project,.project:nth-of-type(odd){grid-template-columns:1fr;gap:25px}.project:nth-of-type(odd) .project-visual{order:0}.project-visual{height:330px}.journey-layout{gap:35px}.contact{margin-left:20px;margin-right:20px}}
 @media(max-width:600px){.nav{height:70px;padding:0 20px}.nav-links{display:none;position:absolute;top:69px;left:0;right:0;padding:22px;background:#0c0f17;border-bottom:1px solid var(--line);flex-direction:column;gap:20px}.nav-links.open{display:flex}.nav-cta{margin-left:auto;margin-right:20px;font-size:9px}.menu-toggle{display:block}.section-wrap{padding-left:21px;padding-right:21px}.hero{padding-top:55px}.hero h1{font-size:clamp(52px,14vw,76px);margin-top:28px}.hero-description{font-size:14px}.hero-meta{flex-direction:column;gap:9px;margin-top:35px}.hero-art{height:390px;transform:scale(.88);transform-origin:center}.orbit-one{width:340px}.orbit-two{width:300px}.label-left{left:-2px}.label-right{right:-2px}.chip-top{left:2%}.chip-bottom{right:0}.section-pad{padding-top:80px;padding-bottom:80px}.about h2,.section-heading h2,.stack h2,.journey h2{font-size:38px}.about-bottom{grid-template-columns:1fr;gap:22px}.what-grid{grid-template-columns:1fr}.service-card:last-child{grid-column:auto}.service-card{min-height:280px}.section-heading{align-items:start;flex-direction:column;gap:15px}.project{padding-bottom:55px}.project-visual{height:285px}.word-grid{grid-template-columns:repeat(5,35px);gap:4px;top:65px}.tile{height:35px;font-size:15px}.solver-card{bottom:18px;right:15px}.game-board{grid-template-columns:repeat(4,40px);gap:5px}.game-board span{width:40px;height:40px;font-size:14px}.stack-cloud{gap:9px;min-height:240px}.tech{font-size:10px;padding:12px 13px}.journey-layout{grid-template-columns:1fr;gap:40px}.timeline-item{grid-template-columns:65px 1fr;gap:10px}.contact{padding-top:50px;padding-bottom:50px;margin:0 12px 45px}.contact h2{font-size:52px}.orb-one{right:-100px;top:35%}.orb-two{right:22%;top:20%}.footer{padding-top:22px;padding-bottom:22px;height:auto;gap:15px;flex-wrap:wrap}.footer p{order:3;width:100%;margin:0}.footer>a:last-child{margin-left:auto}.scroll-cue{left:21px}.button{padding:12px 14px}.marquee-track{gap:22px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 
 
-/* Personal photo in the hero */
-.hero-photo-art{overflow:visible}
-.hero-photo-art .photo-halo{
-  position:absolute;width:390px;height:440px;border-radius:48% 52% 44% 56%;
-  background:linear-gradient(145deg,#a78bfa55,#7cebd022 70%,transparent);
-  filter:blur(12px);transform:rotate(9deg);animation:haloPulse 7s ease-in-out infinite;
-}
-.hero-photo-art .photo-frame{
-  position:relative;z-index:2;width:min(330px,72%);height:430px;border-radius:160px 160px 12px 12px;
-  padding:8px;background:linear-gradient(145deg,#c2b2ff,#7cebd0 70%,#6d8dff);
-  box-shadow:0 30px 90px #0008,0 0 50px #a78bfa22;transform:rotate(2deg);
-  animation:photoFloat 6s ease-in-out infinite;overflow:visible;
-}
-.hero-photo-art .photo-frame img{
-  display:block;width:100%;height:100%;object-fit:cover;object-position:center 35%;
-  border-radius:155px 155px 7px 7px;filter:saturate(.94) contrast(1.02);
-}
-.hero-photo-art .photo-overlay{
-  position:absolute;inset:8px;border-radius:150px 150px 5px 5px;
-  background:linear-gradient(180deg,transparent 48%,#080a1088 100%);pointer-events:none;
-}
-.hero-photo-art .photo-sticker{
-  position:absolute;z-index:4;background:#111520ed;border:1px solid #ffffff26;
-  color:#f2f2f7;padding:12px 14px;border-radius:5px;font:9px var(--mono);
-  letter-spacing:1px;box-shadow:0 12px 35px #0006;white-space:nowrap;
-}
-.hero-photo-art .photo-sticker span{color:var(--mint);margin-left:8px}
-.hero-photo-art .sticker-top{top:70px;left:-65px;transform:rotate(-5deg)}
-.hero-photo-art .sticker-bottom{bottom:40px;right:-72px;display:flex;gap:9px;align-items:center;transform:rotate(3deg)}
-.hero-photo-art .orbit{z-index:-1}
-.hero-photo-art .label-left{left:-2%;top:47%}
-.hero-photo-art .label-right{right:-2%;top:49%}
-@keyframes photoFloat{0%,100%{transform:translateY(0) rotate(2deg)}50%{transform:translateY(-10px) rotate(0deg)}}
-@keyframes haloPulse{0%,100%{opacity:.7;transform:rotate(9deg) scale(1)}50%{opacity:1;transform:rotate(13deg) scale(1.04)}}
-@media(max-width:900px){
-  .hero-photo-art{height:500px}
-  .hero-photo-art .photo-frame{height:410px;width:min(310px,70%)}
-}
-@media(max-width:600px){
-  .hero-photo-art{height:410px;transform:none}
-  .hero-photo-art .photo-frame{height:350px;width:245px}
-  .hero-photo-art .sticker-top{left:-18px;top:55px}
-  .hero-photo-art .sticker-bottom{right:-18px;bottom:25px}
-  .hero-photo-art .label-left{left:-8px}
-  .hero-photo-art .label-right{right:-8px}
-  .hero-photo-art .orbit-one{width:300px;height:160px}
-  .hero-photo-art .orbit-two{width:280px;height:220px}
-}
+/* Direct contact details */
+.contact-details{display:flex;flex-wrap:wrap;gap:12px 30px;margin-top:30px;color:var(--muted,#a8a5b8);font-size:.95rem}
+.contact-details p{margin:0;display:flex;flex-wrap:wrap;gap:9px}
+.contact-details p span{color:var(--muted,#a8a5b8)}
+.contact-details a{color:var(--text,#f7f5ff);text-decoration:none;border-bottom:1px solid rgba(167,139,250,.45);transition:color .2s ease}
+.contact-details a:hover{color:#b9a4ff}
