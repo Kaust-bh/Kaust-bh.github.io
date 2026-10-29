@@ -21,4 +21,4 @@ Keep `index.html`, `style.css`, `script.js`, `favicon.svg`, and `CNAME` together
 - No build step or npm dependencies required.
 - Uses Google Fonts when online; system sans-serif fallbacks remain available.
 - Includes reduced-motion support, keyboard-focus styling, a mobile navigation menu, project filters, a short branded loader, and a custom cursor for fine-pointer devices.
-- The 2048 project links to the GitHub profile because a specific repository URL was not verified in the supplied context. Replace it with the exact repository URL when ready.
+- The DQN-based 2048 experiment and the interactive 2048 AI Lab are separate projects; the AI Lab links to its live demo and repository.
