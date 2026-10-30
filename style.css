@@ -347,3 +347,89 @@ body{background:#000;color:#f5f5f7}
   .project { border: 0; border-radius: 0; background: transparent; }
   .project-art { border: 0; }
 }
+
+
+/* FINAL FIX: continuous ticker, restored project actions, and borderless project layout. */
+.marquee {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: clamp(64px, 5vw, 82px);
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  background: #0a0a0a;
+  border: 0;
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: max-content;
+  min-width: max-content;
+  white-space: nowrap;
+  gap: 0;
+  animation: marquee-continuous 36s linear infinite !important;
+  will-change: transform;
+}
+.marquee-group {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: max-content;
+  gap: clamp(18px, 2vw, 34px);
+  padding-right: clamp(18px, 2vw, 34px);
+}
+.marquee-group span {
+  display: inline-block;
+  flex: 0 0 auto;
+  color: #d7d7df;
+  font: 600 clamp(11px, .78vw, 15px)/1 var(--mono);
+  letter-spacing: .1em;
+}
+.marquee-group b {
+  display: inline-block;
+  flex: 0 0 auto;
+  color: #287bff;
+  font: 400 clamp(17px, 1.25vw, 23px)/1 var(--mono);
+  margin: 0;
+}
+@keyframes marquee-continuous {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+/* Keep the requested continuous motion even if the OS reduced-motion flag is on. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: marquee-continuous 36s linear infinite !important; }
+}
+
+/* No card frames or horizontal rules around project rows. Preserve artwork. */
+.work-section {
+  border: 0 !important;
+}
+.project,
+.project:last-of-type {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+.project-art {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+.project-copy {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+.project-topline,
+.project-detail-grid {
+  border: 0 !important;
+}
+.project-detail-grid {
+  padding-top: 0;
+}
